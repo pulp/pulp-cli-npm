@@ -22,7 +22,7 @@ classifiers=[
   "Typing :: Typed",
 ]
 dependencies = [
-  "pulp-cli>=0.23.1,<0.37",
+  "pulp-cli>=0.36.0,<0.37",
   "pulp-glue-npm==0.0.1.dev0",
 ]
 
@@ -34,11 +34,18 @@ changelog = "https://github.com/pulp/pulp-cli-npm/blob/main/CHANGES.md"
 npm = "pulpcore.cli.npm"
 
 [tool.pulp_cli_template]
+# This section is co-managed by the cookiecutter templates.
+# Changes to existing keys should be preserved.
 app_label = "npm"
+src_layout = true
+repository = "https://github.com/pulp/pulp-cli-npm"
 glue = true
 docs = false
-src_layout = true
 translations = false
+main_package = "npm"
+binary_dependencies = ""
+unittests = false
+paralleltests = false
 
 [tool.pytest.ini_options]
 markers = [
@@ -46,3 +53,150 @@ markers = [
   "help_page: tests that render help pages",
   "pulp_npm: pulp_npm tests",
 ]
+
+[tool.setuptools.packages.find]
+# This section is managed by the cookiecutter templates.
+where = ["src"]
+include = ["pulpcore.cli.*"]
+namespaces = true
+
+[tool.setuptools.package-data]
+# This section is managed by the cookiecutter templates.
+"*" = ["py.typed"]
+
+
+[tool.bumpversion]
+# This section is managed by the cookiecutter templates.
+current_version = "0.0.1.dev0"
+commit = false
+tag = false
+parse = "(?P<major>\\d+)\\.(?P<minor>\\d+)\\.(?P<patch>\\d+)(\\.(?P<release>[a-z]+))?"
+serialize = [
+  "{major}.{minor}.{patch}.{release}",
+  "{major}.{minor}.{patch}",
+]
+
+[tool.bumpversion.parts.release]
+# This section is managed by the cookiecutter templates.
+optional_value = "prod"
+values = [
+  "dev",
+  "prod",
+]
+
+[[tool.bumpversion.files]]
+# This section is managed by the cookiecutter templates.
+filename = "./pulp-glue-npm/src/pulp_glue/npm/__init__.py"
+search = "__version__ = \"{current_version}\""
+replace = "__version__ = \"{new_version}\""
+
+[[tool.bumpversion.files]]
+# This section is managed by the cookiecutter templates.
+filename = "./src/pulpcore/cli/npm/__init__.py"
+search = "__version__ = \"{current_version}\""
+replace = "__version__ = \"{new_version}\""
+
+[[tool.bumpversion.files]]
+# This section is managed by the cookiecutter templates.
+filename = "./pulp-glue-npm/pyproject.toml"
+search = "version = \"{current_version}\""
+replace = "version = \"{new_version}\""
+
+[[tool.bumpversion.files]]
+# This section is managed by the cookiecutter templates.
+filename = "./pyproject.toml"
+search = "version = \"{current_version}\""
+replace = "version = \"{new_version}\""
+
+[[tool.bumpversion.files]]
+# This section is managed by the cookiecutter templates.
+filename = "./pyproject.toml"
+search = "\"pulp-glue-npm=={current_version}\""
+replace = "\"pulp-glue-npm=={new_version}\""
+
+
+[tool.towncrier]
+# This section is managed by the cookiecutter templates.
+filename = "CHANGES.md"
+directory = "CHANGES/"
+title_format = "## {version} ({project_date}) {{: #{version} }}"
+template = "CHANGES/.TEMPLATE.md"
+issue_format = "[#{issue}](https://github.com/pulp/pulp-cli-npm/issues/{issue})"
+start_string = "[//]: # (towncrier release notes start)\n"
+underlines = ["", "", ""]
+
+[[tool.towncrier.section]]
+# This section is managed by the cookiecutter templates.
+path = ""
+name = ""
+
+[[tool.towncrier.section]]
+# This section is managed by the cookiecutter templates.
+path = "pulp-glue-npm"
+name = "Pulp-npm GLUE"
+
+[[tool.towncrier.type]]
+# This section is managed by the cookiecutter templates.
+directory = "feature"
+name = "Features"
+showcontent = true
+
+[[tool.towncrier.type]]
+# This section is managed by the cookiecutter templates.
+directory = "bugfix"
+name = "Bugfixes"
+showcontent = true
+
+[[tool.towncrier.type]]
+# This section is managed by the cookiecutter templates.
+directory = "removal"
+name = "Deprecations and Removals"
+showcontent = true
+
+[[tool.towncrier.type]]
+# This section is managed by the cookiecutter templates.
+directory = "devel"
+name = "Developer Notes"
+showcontent = true
+
+[[tool.towncrier.type]]
+# This section is managed by the cookiecutter templates.
+directory = "misc"
+name = "Misc"
+showcontent = true
+
+
+[tool.ruff]
+# This section is managed by the cookiecutter templates.
+line-length = 100
+extend-exclude = ["cookiecutter"]
+
+[tool.ruff.lint]
+# This section is managed by the cookiecutter templates.
+extend-select = ["I"]
+
+[tool.ruff.lint.isort]
+# This section is managed by the cookiecutter templates.
+sections = { second-party = ["pulp_glue"] }
+section-order = ["future", "standard-library", "third-party", "second-party", "first-party", "local-folder"]
+
+
+[tool.mypy]
+# This section is managed by the cookiecutter templates.
+strict = true
+warn_unused_ignores = false
+show_error_codes = true
+files = "src/**/*.py, tests/*.py"
+mypy_path = ["src", "pulp-glue-npm/src"]
+namespace_packages = true
+explicit_package_bases = true
+
+[[tool.mypy.overrides]]
+# This section is managed by the cookiecutter templates.
+module = [
+  "click_shell.*",
+  "gnupg.*",
+  "IPython.*",
+  "schema.*",
+]
+ignore_missing_imports = true

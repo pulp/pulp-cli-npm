@@ -1,11 +1,6 @@
 import typing as t
 
 import click
-
-from pulp_glue.common.context import PulpEntityContext, PulpRepositoryContext
-from pulp_glue.common.i18n import get_translation
-from pulp_glue.npm.context import PulpNpmPackageContentContext, PulpNpmRepositoryContext
-
 from pulp_cli.generic import (
     PulpCLIContext,
     chunk_size_option,
@@ -17,6 +12,10 @@ from pulp_cli.generic import (
     resource_option,
     show_command,
 )
+
+from pulp_glue.common.context import PulpEntityContext, PulpRepositoryContext
+from pulp_glue.common.i18n import get_translation
+from pulp_glue.npm.context import PulpNpmPackageContentContext, PulpNpmRepositoryContext
 
 translation = get_translation(__package__)
 _ = translation.gettext
@@ -84,7 +83,5 @@ def upload(
     """Upload an npm package."""
     assert isinstance(entity_ctx, PulpNpmPackageContentContext)
 
-    result = entity_ctx.upload(
-        file=file, chunk_size=chunk_size, repository=repository
-    )
+    result = entity_ctx.upload(file=file, chunk_size=chunk_size, repository=repository)
     pulp_ctx.output_result(result)

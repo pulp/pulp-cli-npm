@@ -1,11 +1,4 @@
 import click
-
-from pulp_glue.common.i18n import get_translation
-from pulp_glue.npm.context import (
-    PulpNpmDistributionContext,
-    PulpNpmRepositoryContext,
-)
-
 from pulp_cli.generic import (
     PulpCLIContext,
     common_distribution_create_options,
@@ -25,6 +18,12 @@ from pulp_cli.generic import (
     role_command,
     show_command,
     update_command,
+)
+
+from pulp_glue.common.i18n import get_translation
+from pulp_glue.npm.context import (
+    PulpNpmDistributionContext,
+    PulpNpmRepositoryContext,
 )
 
 translation = get_translation(__package__)
@@ -54,9 +53,7 @@ repository_option = resource_option(
 )
 @pass_pulp_context
 @click.pass_context
-def distribution(
-    ctx: click.Context, pulp_ctx: PulpCLIContext, /, distribution_type: str
-) -> None:
+def distribution(ctx: click.Context, pulp_ctx: PulpCLIContext, /, distribution_type: str) -> None:
     if distribution_type == "npm":
         ctx.obj = PulpNpmDistributionContext(pulp_ctx)
     else:

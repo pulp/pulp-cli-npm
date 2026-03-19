@@ -1,19 +1,6 @@
 import typing as t
 
 import click
-
-from pulp_glue.common.context import (
-    EntityFieldDefinition,
-    PulpRemoteContext,
-    PulpRepositoryContext,
-)
-from pulp_glue.common.i18n import get_translation
-from pulp_glue.npm.context import (
-    PulpNpmPackageContentContext,
-    PulpNpmRemoteContext,
-    PulpNpmRepositoryContext,
-)
-
 from pulp_cli.generic import (
     PulpCLIContext,
     create_command,
@@ -36,6 +23,18 @@ from pulp_cli.generic import (
     show_command,
     update_command,
     version_command,
+)
+
+from pulp_glue.common.context import (
+    EntityFieldDefinition,
+    PulpRemoteContext,
+    PulpRepositoryContext,
+)
+from pulp_glue.common.i18n import get_translation
+from pulp_glue.npm.context import (
+    PulpNpmPackageContentContext,
+    PulpNpmRemoteContext,
+    PulpNpmRepositoryContext,
 )
 
 translation = get_translation(__package__)

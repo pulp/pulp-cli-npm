@@ -6,6 +6,7 @@ from click.testing import CliRunner
 from packaging.version import parse as parse_version
 from pulp_cli import __version__ as PULP_CLI_VERSION
 from pulp_cli import load_plugins, main
+from pytest_subtests import SubTests
 
 load_plugins()
 
@@ -39,7 +40,7 @@ def no_api(monkeypatch: pytest.MonkeyPatch) -> None:
 
 
 @pytest.mark.help_page
-def test_access_help(no_api: None, subtests: pytest.Subtests) -> None:
+def test_access_help(no_api: None, subtests: SubTests) -> None:
     """Test, that all help screens are accessible without touching the api property."""
     if parse_version(PULP_CLI_VERSION) < parse_version("0.24"):
         pytest.skip("This test is incompatible with older cli versions.")

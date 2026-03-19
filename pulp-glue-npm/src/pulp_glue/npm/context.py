@@ -1,5 +1,4 @@
 from pulp_glue.common.context import (
-    EntityDefinition,
     PluginRequirement,
     PulpContentContext,
     PulpDistributionContext,
