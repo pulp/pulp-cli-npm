@@ -1,0 +1,19 @@
+Metadata-Version: 2.4
+Name: pulp-cli-npm
+Version: 0.0.1.dev0
+Summary: Command line interface to talk to pulpcore's REST API. (Npm plugin commands)
+Author-email: Pulp Team <pulp-list@redhat.com>
+License-Expression: GPL-2.0-or-later
+Project-URL: repository, https://github.com/pulp/pulp-cli-npm
+Project-URL: changelog, https://github.com/pulp/pulp-cli-npm/blob/main/CHANGES.md
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: System Administrators
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: System :: Software Distribution
+Classifier: Typing :: Typed
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: pulp-cli<0.37,>=0.23.1
+Requires-Dist: pulp-glue-npm==0.0.1.dev0

@@ -1,0 +1,13 @@
+
+
+jobs:
+  test:
+    strategy:
+      matrix:
+        include:
+          - image_tag: "nightly"
+            pulp_api_root: "/relocated/djnd/"
+            python: "3.11"
+          - image_tag: "latest"
+            lower_bounds: true
+            python: "3.8"

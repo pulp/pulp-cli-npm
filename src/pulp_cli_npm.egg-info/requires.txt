@@ -1,0 +1,2 @@
+pulp-cli<0.37,>=0.23.1
+pulp-glue-npm==0.0.1.dev0

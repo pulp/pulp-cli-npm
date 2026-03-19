@@ -1,0 +1,18 @@
+Metadata-Version: 2.4
+Name: pulp-glue-npm
+Version: 0.0.1.dev0
+Summary: Version agnostic glue library to talk to pulpcore's REST API. (Npm plugin)
+Author-email: Pulp Team <pulp-list@redhat.com>
+License-Expression: GPL-2.0-or-later
+Project-URL: repository, https://github.com/pulp/pulp-cli-npm
+Project-URL: changelog, https://github.com/pulp/pulp-cli-npm/blob/main/CHANGES.md
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Other Environment
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: System :: Software Distribution
+Classifier: Typing :: Typed
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: pulp-glue<0.37,>=0.23.1
