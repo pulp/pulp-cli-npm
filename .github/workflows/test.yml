@@ -22,7 +22,7 @@ jobs:
             python: "3.11"
           - image_tag: "latest"
             lower_bounds: true
-            python: "3.8"
+            python: "3.11"
     steps:
       - uses: "actions/checkout@v6"
       - uses: "actions/cache@v5"
