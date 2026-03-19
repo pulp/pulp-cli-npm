@@ -1,10 +1,10 @@
 import typing as t
 
 import click
+from pulp_cli.generic import pulp_group
 
 from pulp_glue.common.i18n import get_translation
 
-from pulp_cli.generic import pulp_group
 from pulpcore.cli.npm.content import content
 from pulpcore.cli.npm.distribution import distribution
 from pulpcore.cli.npm.remote import remote
