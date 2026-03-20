@@ -13,7 +13,7 @@ from pulpcore.cli.npm.repository import repository
 translation = get_translation(__package__)
 _ = translation.gettext
 
-__version__ = "0.0.1.dev0"
+__version__ = "0.0.1"
 
 
 @pulp_group(name="npm")

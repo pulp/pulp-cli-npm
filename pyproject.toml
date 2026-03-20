@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "pulp-cli-npm"
-version = "0.0.1.dev0"
+version = "0.0.1"
 description = "Command line interface to talk to pulpcore's REST API. (Npm plugin commands)"
 readme = "README.md"
 requires-python = ">=3.10"
@@ -23,7 +23,7 @@ classifiers=[
 ]
 dependencies = [
   "pulp-cli>=0.36.0,<0.37",
-  "pulp-glue-npm==0.0.1.dev0",
+  "pulp-glue-npm==0.0.1",
 ]
 
 [project.urls]
@@ -67,7 +67,7 @@ namespaces = true
 
 [tool.bumpversion]
 # This section is managed by the cookiecutter templates.
-current_version = "0.0.1.dev0"
+current_version = "0.0.1"
 commit = false
 tag = false
 parse = "(?P<major>\\d+)\\.(?P<minor>\\d+)\\.(?P<patch>\\d+)(\\.(?P<release>[a-z]+))?"
