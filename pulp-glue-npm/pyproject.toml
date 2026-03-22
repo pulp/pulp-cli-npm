@@ -46,7 +46,6 @@ module = [
 ]
 ignore_missing_imports = true
 
-
 [tool.setuptools.packages.find]
 # This section is managed by the cookiecutter templates.
 where = ["src"]
